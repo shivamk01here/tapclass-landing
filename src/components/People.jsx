@@ -1,6 +1,6 @@
 // src/components/PeopleTab.jsx
 import React, { useEffect, useState } from 'react';
-import { fetchUsersByRole, fetchUserDetail, addUser  } from '../services/peopleService';
+import { fetchUsersByRole, fetchUserDetail, addUser  } from '../services/PeopleService';
 import { useNavigate } from 'react-router-dom';
 
 const PeopleTab = () => {
