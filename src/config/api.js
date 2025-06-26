@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8000/api';
+const BASE_URL = 'http://ec2-3-110-51-98.ap-south-1.compute.amazonaws.com:5000/api';
 
 export const API_ENDPOINTS = {
   REGISTER: `${BASE_URL}/auth/register`,
