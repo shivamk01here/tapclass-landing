@@ -7,6 +7,8 @@ import Logout from './pages/Logout';
 import Dashboard from './pages/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 
+import BookingPage from './pages/BookingPage/index';
+
 // Pages wrapped in layout
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
@@ -27,6 +29,8 @@ function App() {
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
       </Route>
+
+      <Route path="/in/:instituteName/*" element={<BookingPage />} />
 
       {/* Routes without layout */}
       <Route path="/login" element={<Login />} />

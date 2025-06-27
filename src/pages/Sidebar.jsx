@@ -2,51 +2,49 @@ import React from 'react';
 import {
   Home,
   Users,
-  BookOpen, // Kept this if you prefer it for booking, or consider CalendarCheck
+  BookOpen,
   BarChart3,
   FileText,
-  Settings, 
-  HelpCircle, 
-  LogOut ,
+  Settings,
+  HelpCircle,
+  LogOut,
   Book,
   School,
-  Package,
   Globe,
 } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
 const Sidebar = ({ activeTab, setActiveTab }) => {
-  const { logout,currentUser } = useAuth();
-  console.log('user 2 : ',currentUser?.roleID);
+  const { logout, currentUser } = useAuth();
+  console.log('user 2 : ', currentUser?.roleID);
 
   const menuItems = [
     { id: 'dashboard', icon: Home, label: 'Dashboard' },
-    { id: 'People', icon: Users, label: 'People' },  
-    { id: 'Subject', icon: Book, label: 'Subject' },    // Changed to Book
-    { id: 'Class', icon: School, label: 'Class' },     
-
-    { id: 'online Booking', icon: BookOpen, label: 'online Booking' },
+    { id: 'People', icon: Users, label: 'People' },
+    { id: 'Subject', icon: Book, label: 'Subject' },
+    { id: 'Class', icon: School, label: 'Class' },
+    { id: 'onlineBooking', icon: BookOpen, label: 'Online Booking' }, // Changed ID for consistency
     { id: 'analytics', icon: BarChart3, label: 'Analytics' },
     { id: 'reports', icon: FileText, label: 'Reports' },
   ];
 
   const bottomSidebarItems = [
-    { id: 'online Booking', icon: Globe, label: 'Online Booking' },
-    { id: 'SettingsPage', icon: Settings, label: 'SettingsPage' }, 
-    { id: 'HelpPage', icon: HelpCircle, label: 'HelpPage' }, 
+    { id: 'websiteBooking', icon: Globe, label: 'Website Booking' }, // Renamed to avoid ID conflict
+    { id: 'settings', icon: Settings, label: 'Settings' }, // Changed ID for consistency
+    { id: 'help', icon: HelpCircle, label: 'Help' }, // Changed ID for consistency
   ];
 
   return (
-    <div className="fixed left-0 top-0 h-screen w-14 bg-white border-r border-gray-100 flex flex-col items-center py-4 z-40 shadow-sm space-y-4">
-      {/* Logo Block (unchanged) */}
-      <div className="w-10 h-10 bg-gradient-to-br from-slate-700 via-blue-600 to-indigo-700 rounded-2xl flex items-center justify-center shadow-lg">
+    <div className="fixed left-0 top-0  mt-10 h-screen w-14 bg-white border-r border-gray-100 flex flex-col items-center py-4 z-40 shadow-sm space-y-4">
+      {/* Logo Block - Updated to gray-900 theme */}
+      {/* <div className="w-10 h-10 bg-gray-900 rounded-2xl flex items-center justify-center shadow-lg">
         <div className="w-5 h-5 border-2 border-white rounded-lg relative">
-          <div className="absolute inset-0.5 bg-white rounded-sm opacity-80"></div>
-          <div className="absolute top-0.5 left-0.5 w-1 h-1 bg-slate-700 rounded-full"></div>
-          <div className="absolute top-0.5 right-0.5 w-1 h-1 bg-slate-700 rounded-full"></div>
-          <div className="absolute bottom-0.5 left-0.5 right-0.5 h-0.5 bg-slate-700 rounded-full"></div>
-        </div>
-      </div>
+          <div className="absolute inset-0.5 bg-white rounded-sm opacity-80"></div> */}
+          {/* <div className="absolute top-0.5 left-0.5 w-1 h-1 bg-gray-800 rounded-full"></div> Changed to gray-800 */}
+          {/* <div className="absolute top-0.5 right-0.5 w-1 h-1 bg-gray-800 rounded-full"></div> Changed to gray-800 */}
+          {/* <div className="absolute bottom-0.5 left-0.5 right-0.5 h-0.5 bg-gray-800 rounded-full"></div> Changed to gray-800 */}
+        {/* </div>
+      </div> */}
 
       {/* Menu Items (Top Section) */}
       <div className="flex flex-col space-y-3 flex-1">
@@ -60,7 +58,7 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
                 onClick={() => setActiveTab(item.id)}
                 className={`w-10 h-10 flex items-center justify-center rounded-lg transition-all duration-300 ${
                   isActive
-                    ? 'bg-gradient-to-br from-blue-600 to-purple-600 text-white shadow-md'
+                    ? 'bg-gray-800 text-white shadow-md' // Changed to solid gray-800
                     : 'text-gray-400 hover:text-gray-700 hover:bg-gray-50'
                 }`}
               >
@@ -81,15 +79,15 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
       <div className="flex flex-col space-y-3">
         {bottomSidebarItems.map((item) => {
           const Icon = item.icon;
-          const isActive = activeTab === item.id; // Check if bottom item is active
+          const isActive = activeTab === item.id;
 
           return (
             <div key={item.id} className="relative group">
               <button
-                onClick={() => setActiveTab(item.id)} // This will now set 'activeTab' to 'SettingsPage' or 'Help'
+                onClick={() => setActiveTab(item.id)}
                 className={`w-10 h-10 flex items-center justify-center rounded-lg transition-all duration-300 ${
                   isActive
-                    ? 'bg-gradient-to-br from-blue-600 to-purple-600 text-white shadow-md'
+                    ? 'bg-gray-800 text-white shadow-md' // Changed to solid gray-800
                     : 'text-gray-400 hover:text-gray-700 hover:bg-gray-50'
                 }`}
               >

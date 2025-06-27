@@ -8,7 +8,7 @@ import People from '../components/People';
 import Subject from '../DashboardPages/Subject';
 // import Package from '../components/Sidebar/Package';
 import Class from '../DashboardPages/ClassPage';
-// import BookingSetting from './BookingSetting';
+import BookingPage from './BookingPage/index';
 
 const Dashboard = () => {
   const { user } = useAuth();
@@ -28,8 +28,8 @@ const Dashboard = () => {
         return <Class />;
     //   case 'item':
     //       return <Package />;
-    //   case 'online Booking':
-    //       return <BookingSetting />;
+      case 'online Booking':
+          return <BookingPage />;
       case 'analytics':
           return <div>analytics would be here soon</div>
       case 'users':
@@ -69,7 +69,7 @@ const Dashboard = () => {
           <Navbar user={user} setActiveTab={setActiveTab} />
           
           {/* Content */}
-          <main className="p-6">
+          <main className="">
             {renderContent()}
           </main>
         </div>

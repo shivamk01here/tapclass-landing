@@ -1,4 +1,6 @@
-const BASE_URL = 'http://ec2-3-110-51-98.ap-south-1.compute.amazonaws.com:5000/api';
+const BASE_URL = 'https://locations-comply-hearings-records.trycloudflare.com/api';
+// const BASE_URL = 'http://127.0.0.1:8000/api';
+// const NODE_URL = 'https://84b3-3-110-51-98.ngrok-free.app/api';
 
 export const API_ENDPOINTS = {
   REGISTER: `${BASE_URL}/auth/register`,

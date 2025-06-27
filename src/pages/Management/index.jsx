@@ -1,10 +1,10 @@
 // pages/Management/index.jsx
 import React, { useState } from 'react';
 import { Users, BookOpen, Package, Search, Filter, Plus } from 'react-feather';
-import ItemList from '../pages/Management/ItemList';
-import BatchDetail from '../pages/Management/BatchDetail';
-import SubjectDetail from '../pages/Management/SubjectDetail';
-import PackageDetail from '../pages/Management/PackageDetail';
+import ItemList from './ItemList';
+import BatchDetail from './BatchDetail';
+import SubjectDetail from './SubjectDetail';
+import PackageDetail from './PackageDetail';
 // import AddEditModal from './AddEditModal'; // Uncomment if you implement modals
 
 // Utility function (can be moved to a separate utils file if needed)

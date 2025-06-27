@@ -54,7 +54,7 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row bg-gray-900 font-inter">
+    <div className="min-h-screen flex flex-col md:flex-row bg-black-1000 font-inter">
       {/* Left Side */}
       <div
         className="md:w-1/2 w-full h-64 md:h-auto bg-cover bg-center relative"

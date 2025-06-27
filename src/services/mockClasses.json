@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "title": "Maths - 8A",
+      "location": "Room 101",
+      "from": "2025-06-28T09:00",
+      "to": "2025-06-28T10:00",
+      "teacher": "John Smith",
+      "status": "active"
+    },
+    {
+      "id": 2,
+      "title": "Science - 9B",
+      "location": "Room 203",
+      "from": "2025-06-29T11:00",
+      "to": "2025-06-29T12:00",
+      "teacher": "Jane Doe",
+      "status": "cancelled"
+    }
+  ]
+  

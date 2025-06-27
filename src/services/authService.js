@@ -1,45 +1,45 @@
-import { API_ENDPOINTS } from '../config/api';
+  import { API_ENDPOINTS } from '../config/api';
 
-export const registerInstitution = async (formData) => {
-  const payload = {
-    institution_name: formData.institution_name,
-    owner_name: formData.owner_name,
-    owner_surname: formData.surname,
-    email: formData.email,
-    password: formData.password,
+  export const registerInstitution = async (formData) => {
+    const payload = {
+      institution_name: formData.institution_name,
+      owner_name: formData.owner_name,
+      owner_surname: formData.surname,
+      email: formData.email,
+      password: formData.password,
+    };
+
+    const response = await fetch(API_ENDPOINTS.REGISTER, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.message || 'Registration failed');
+    }
+
+    return await response.json();
   };
 
-  const response = await fetch(API_ENDPOINTS.REGISTER, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(payload),
-  });
+  export const loginInstitution = async ({ email, password }) => {
+    const payload = { email, password };
 
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.message || 'Registration failed');
-  }
+    const response = await fetch(API_ENDPOINTS.LOGIN, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
 
-  return await response.json();
-};
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.message || 'Login failed');
+    }
 
-export const loginInstitution = async ({ email, password }) => {
-  const payload = { email, password };
-
-  const response = await fetch(API_ENDPOINTS.LOGIN, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(payload),
-  });
-
-  if (!response.ok) {
-    const error = await response.json();
-    throw new Error(error.message || 'Login failed');
-  }
-
-  return await response.json();
-};
+    return await response.json();
+  };

@@ -1,0 +1,18 @@
+{
+  "math": [
+    {
+      "id": "math-basic",
+      "title": "Mathematics Basic Pack",
+      "price": 2999,
+      "description": "Foundational concepts for Class 9 & 10.",
+      "includes": ["Live Classes", "PDF Notes", "Practice Sheets"]
+    },
+    {
+      "id": "math-advanced",
+      "title": "Mathematics Pro Pack",
+      "price": 5499,
+      "description": "Advanced JEE-level prep for Class 11 & 12.",
+      "includes": ["Advanced Problem Solving", "Mock Tests", "Doubt Clearing Sessions"]
+    }
+  ]
+}

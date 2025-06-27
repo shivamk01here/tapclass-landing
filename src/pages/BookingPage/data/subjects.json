@@ -1,0 +1,6 @@
+{
+  "tapclass": [
+    { "id": "math", "name": "Mathematics", "description": "Learn algebra, geometry, and more." },
+    { "id": "phy", "name": "Physics", "description": "Master mechanics, waves, and thermodynamics." }
+  ]
+}

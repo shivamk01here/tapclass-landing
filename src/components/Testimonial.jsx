@@ -1,71 +1,113 @@
-import { Quote, Star } from 'lucide-react';
+import { Quote, Star, Users, CreditCard, Building } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 const Testimonial = () => {
+  const [currentStat, setCurrentStat] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentStat(prev => (prev + 1) % 3);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const stats = [
+    { icon: Users, value: "2.5K+", label: "Students", color: "from-blue-500 to-cyan-500" },
+    { icon: CreditCard, value: "₹1Cr+", label: "Payments", color: "from-green-500 to-emerald-500" },
+    { icon: Building, value: "50+", label: "Academies", color: "from-purple-500 to-pink-500" }
+  ];
+
   return (
-    <section className="section-padding bg-gradient-to-br from-gray-900 to-gray-800">
-      <div className="container-max">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 text-white text-sm font-medium mb-4 backdrop-blur-sm">
-            💬 Why Coaching Owners Love Us
+    <section className="relative py-16 -mt-8 px-4 bg-gradient-to-b from-gray-900 via-gray-800 to-slate-900 overflow-hidden">
+      {/* Floating Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+      </div>
+
+      <div className="relative max-w-3xl mx-auto">
+        {/* Header Badge */}
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium">
+            ❤️ Loved by Coaching Owners
           </div>
         </div>
 
-        {/* Main Testimonial */}
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="relative">
-            {/* Quote Icon */}
-            <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
-              <div className="w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center">
-                <Quote className="w-8 h-8 text-white" />
-              </div>
+        {/* Main Testimonial Card */}
+        <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10 shadow-2xl">
+          {/* Quote Icon */}
+          <div className="absolute -top-6 left-1/2 transform -translate-x-1/2">
+            <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center shadow-lg">
+              <Quote className="w-6 h-6 text-white" />
             </div>
+          </div>
 
-            {/* Testimonial Text */}
-            <blockquote className="text-2xl lg:text-3xl font-medium text-white leading-relaxed mb-8 pt-12">
-              "Now I don't need 4 different apps. TapClass handles everything from fees to test updates — all on mobile. It's like having a virtual manager."
+          {/* Testimonial Content */}
+          <div className="text-center pt-6">
+            <blockquote className="text-lg md:text-xl font-medium text-white/90 leading-relaxed mb-6">
+              "From 4 different apps to just one. TapClass handles everything — fees, updates, everything on mobile. It's like having a virtual manager!"
             </blockquote>
 
-            {/* Author Info */}
-            <div className="flex flex-col items-center">
-              {/* Avatar */}
-              <div className="w-16 h-16 bg-gray-400 rounded-full mb-4 overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white font-bold text-xl">
-                  A
-                </div>
+            {/* Author */}
+            <div className="flex items-center justify-center space-x-4 mb-6">
+              <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                A
               </div>
-              
-              {/* Name and Title */}
-              <div className="text-center">
-                <h4 className="text-xl font-bold text-white mb-1">Aakash Sir</h4>
-                <p className="text-gray-300 mb-4">Director, Galaxy Institute</p>
-                
-                {/* Stars */}
-                <div className="flex items-center justify-center space-x-1 mb-2">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <Star key={star} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <p className="text-sm text-gray-400">5.0 out of 5 stars</p>
+              <div className="text-left">
+                <h4 className="font-bold text-white">Aakash Sir</h4>
+                <p className="text-white/60 text-sm">Director, Galaxy Institute</p>
               </div>
             </div>
+
+            {/* Rating */}
+            <div className="flex items-center justify-center space-x-1 mb-2">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <Star key={star} className="w-4 h-4 text-yellow-400 fill-current" />
+              ))}
+            </div>
+            <p className="text-xs text-white/50">Perfect 5.0 rating</p>
           </div>
         </div>
 
-        {/* Stats Section */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-            <div className="text-4xl font-bold text-white mb-2">2.5K+</div>
-            <div className="text-gray-300">Students Managed</div>
-          </div>
-          <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-            <div className="text-4xl font-bold text-white mb-2">₹1Cr+</div>
-            <div className="text-gray-300">Payments Processed</div>
-          </div>
-          <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-            <div className="text-4xl font-bold text-white mb-2">50+</div>
-            <div className="text-gray-300">Academies Onboarded</div>
-          </div>
+        {/* Animated Stats */}
+        <div className="mt-8 grid grid-cols-3 gap-4">
+          {stats.map((stat, index) => (
+            <div
+              key={index}
+              className={`relative p-4 rounded-2xl bg-white/5 backdrop-blur-sm border transition-all duration-500 ${
+                currentStat === index 
+                  ? 'border-white/30 scale-105 bg-white/10' 
+                  : 'border-white/10 hover:border-white/20'
+              }`}
+            >
+              {/* Glow Effect */}
+              {currentStat === index && (
+                <div className={`absolute inset-0 bg-gradient-to-r ${stat.color} opacity-20 rounded-2xl blur-sm`}></div>
+              )}
+              
+              <div className="relative text-center">
+                <div className={`w-8 h-8 bg-gradient-to-r ${stat.color} rounded-lg flex items-center justify-center mx-auto mb-2 ${
+                  currentStat === index ? 'animate-pulse' : ''
+                }`}>
+                  <stat.icon className="w-4 h-4 text-white" />
+                </div>
+                <div className="text-xl font-bold text-white mb-1">{stat.value}</div>
+                <div className="text-xs text-white/60">{stat.label}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Progress Dots */}
+        <div className="flex justify-center mt-6 space-x-2">
+          {stats.map((_, index) => (
+            <div
+              key={index}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                currentStat === index ? 'bg-white w-6' : 'bg-white/30'
+              }`}
+            />
+          ))}
         </div>
       </div>
     </section>
